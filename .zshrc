@@ -23,3 +23,28 @@ du_ls(){
     done
 }
 
+gunzip_ls(){
+    # 获取所有以.gz结尾的文件(不是tar.gz)，并执行gunzip(会删除原始文件)
+    dir=$1
+
+    if [[ ${dir} != */ ]]; then
+        dir=${dir}/
+    fi
+
+    readarray -t files < <(ls ${dir})
+
+    for file in "${files[@]}"; do  
+        if [[ ${file} == *.gz ]]; then  
+            gunzip ${dir}${file}
+        fi
+    done
+}
+
+ps_kill(){
+    # 杀掉所有符合条件的进程   
+    pids=$(ps -ef | grep "${1}" | awk '{print $2}')  
+    for pid in $pids; do  
+        echo "Killing PID $pid"  
+        kill -9 $pid  
+    done
+}
