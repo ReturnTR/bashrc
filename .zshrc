@@ -1,6 +1,8 @@
 export CLICOLOR=1
 export PS1="%B%F{magenta}%D %*%f [%F{green}%n@%m:%f%F{blue}%d%f] $%b"
 alias hg="history | grep "
+alias gr="grep -rn "
+alias fn="find . -type d -o -type f -iname "
 
 du_ls(){
     # 显示该文件夹下所有文件或文件夹的大小
