@@ -2,6 +2,8 @@
 export PS1='[\[\033[01;32m\]\u@\H:\[\033[01;34m\]`pwd`:\[\033[01;35m\]\t\[\033[00m\]]\n$'
 
 alias hg="history | grep "
+alias gr="grep -rn "
+alias fn="find . -type d -o -type f -iname "
 
 du_ls(){
     # 显示该文件夹下所有文件或文件夹的大小
